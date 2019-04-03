@@ -10,6 +10,9 @@ import qualified Data.Vector.Unboxed as Vector
 
 newtype Bitset = Bitset { unBitset :: Vector Word64 }
 
+instance Show Bitset where
+  show = show . foldrBitset (:) []
+
 newtype Union = Union { getUnion :: Bitset }
 newtype Intersection = Intersection { getIntersection :: Bitset }
 
